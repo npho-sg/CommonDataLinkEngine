@@ -7,13 +7,13 @@ public class DevconfigValidator {
 
 	public void validate(Devconfig config){
 		
-		if (config.deviceId().isBlank()){
+		if(config.deviceId().isBlank()){
 			throw new ValidationException("deviceIdが空です");
 		}
-		if (config.ip().isBlank()){
+		if(config.ip().isBlank()){
 			throw new ValidationException("Idが空です");
 		}
-		if (config.port().isBlank()){
+		if(config.port().isBlank()){
 			throw new ValidationException("portが空です");
 		}
 		
