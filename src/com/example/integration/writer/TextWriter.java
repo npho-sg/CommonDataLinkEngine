@@ -15,7 +15,7 @@ public class TextWriter {
 				
 				bw.write(message);
 				bw.newLine();
-			}
+	    	}
 			
 		}catch(IOException e){
 			

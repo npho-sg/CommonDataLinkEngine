@@ -9,6 +9,9 @@ import com.example.integration.exception.ReadException;
 import com.example.integration.exception.ValidationException;
 import com.example.integration.model.Devconfig;
 import com.example.integration.reader.filereader.Reader;
+import com.example.integration.reader.textreader.TempReader;
+import com.example.integration.reader.textreader.TextReader;
+import com.example.integration.tcp.client.TcpClient;
 import com.example.integration.validator.DevconfigValidator;
 import com.example.integration.writer.TextWriter;
 
@@ -35,9 +38,6 @@ public class Main {
 
 					messageList.add(message);
 
-					//String[] hoge = {message};
-					//ClientMain.main(hoge);
-
 				} catch (ValidationException e) {
 					System.out.println("NG : " + config + e.getMessage());
 				}
@@ -46,6 +46,12 @@ public class Main {
 			
 			TextWriter writer = new TextWriter();
 			writer.write(messageList, "output/send.dat");
+			
+			TextReader reader = new TempReader();
+			byte[] data = reader.read("output/send.dat");
+			
+			TcpClient client = new TcpClient();
+			client.send("localhost", 5000, data);
 
 		} catch (ReadException e) {
 			System.out.println("ファイル読込失敗" + e.getMessage());
