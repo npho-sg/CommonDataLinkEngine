@@ -17,7 +17,11 @@ public class DevconfigLayoutResolver implements LayoutResolver{
 			
 			return FileType.DEVICE_CONFIG_V1;
 			
-		}else if(headers.size() == 3) {
+		}else if(headers.size() == 3
+				&& !headers.get(0).isBlank()
+				&& !headers.get(1).isBlank()
+				&& !headers.get(2).isBlank()
+				) {
 			
 			return FileType.DEVICE_CONFIG_NO_HEADER_V1;
 			

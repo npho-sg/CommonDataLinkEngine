@@ -51,10 +51,10 @@ public class Main {
 			byte[] data = reader.read("output/send.dat");
 			
 			TcpClient client = new TcpClient();
-			client.send("localhost", 5000, data);
+			client.send("localhost", 500, data);
 
 		} catch (ReadException e) {
-			System.out.println("ファイル読込失敗" + e.getMessage());
+			System.out.println("ファイル読込失敗：" + e.getMessage());
 
 		}
 

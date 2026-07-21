@@ -61,7 +61,7 @@ public class Reader {
 
 		} catch (IOException e) {
 
-			throw new ReadException("読み込み失敗", e);
+			throw new ReadException("ファイルがみつかりません", e);
 		}
 
 	}

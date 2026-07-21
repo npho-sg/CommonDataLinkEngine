@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.integration.exception.ReadException;
+
 public class TextWriter {
 	
 	public void write(List<String> messageList, String filePath) {
@@ -19,7 +21,7 @@ public class TextWriter {
 			
 		}catch(IOException e){
 			
-			throw new RuntimeException("ファイル読み込み失敗", e);
+			throw new ReadException("出力先ファイルがみつかりません", e);
 			
 		}
 		
