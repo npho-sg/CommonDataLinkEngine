@@ -25,7 +25,7 @@ public class TcpClient {
 			
 		}catch(IOException e) {
 			
-			e.printStackTrace();
+			System.out.println("クライアント：サーバー接続に失敗しました" + e);
 		}
 		
 	}
@@ -48,7 +48,7 @@ public class TcpClient {
 			
 		}catch(IOException e) {
 			
-			e.printStackTrace();
+			System.out.println("クライアント：サーバー接続に失敗しました" + e);
 			
 		}
 		

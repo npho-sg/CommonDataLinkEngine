@@ -18,6 +18,11 @@ import com.example.integration.writer.TextWriter;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		if (args.length != 2) {
+			System.out.println("引数が不正です。読み込みファイル、ポート番号の順で入力してください");
+			System.exit(1);
+		}
 
 		try {
 
@@ -50,8 +55,9 @@ public class Main {
 			TextReader reader = new TempReader();
 			byte[] data = reader.read("output/send.dat");
 			
+			int port = Integer.parseInt(args[1]);
 			TcpClient client = new TcpClient();
-			client.send("localhost", 500, data);
+			client.send("localhost", port, data);
 
 		} catch (ReadException e) {
 			System.out.println("ファイル読込失敗：" + e.getMessage());
