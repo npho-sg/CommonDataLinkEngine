@@ -30,14 +30,14 @@ public class TcpServer {
 					
 				} catch (IOException e) {
 					
-					e.printStackTrace();
+					System.out.println("サーバー待機中に問題が発生しました" + e);
 
 				}
 			}
 
 		} catch (IOException e) {
-
-			e.printStackTrace();
+			
+			System.out.println("サーバー起動に失敗しました" + e);
 
 		}
 	}
