@@ -16,7 +16,7 @@ import com.example.integration.layout.resolver.DevconfigLayoutResolver;
 import com.example.integration.layout.resolver.LayoutResolver;
 import com.example.integration.model.Devconfig;
 
-public class Reader {
+public class InputReader implements Reader {
 
 	public List<Devconfig> read(String filePath) {
 

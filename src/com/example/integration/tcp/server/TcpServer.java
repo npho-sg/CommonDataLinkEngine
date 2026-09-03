@@ -27,16 +27,16 @@ public class TcpServer {
 					OutputStream os = socket.getOutputStream();
 					os.write("ACK".getBytes());
 					os.flush();
-					
+
 				} catch (IOException e) {
-					
+
 					System.out.println("サーバー待機中に問題が発生しました" + e);
 
 				}
 			}
 
 		} catch (IOException e) {
-			
+
 			System.out.println("サーバー起動に失敗しました" + e);
 
 		}

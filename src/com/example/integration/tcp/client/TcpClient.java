@@ -6,52 +6,52 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class TcpClient {
-	
+
 	public void connect(String host, int port, String message) {
-		
-		try (Socket socket = new Socket(host, port)){
-			
+
+		try (Socket socket = new Socket(host, port)) {
+
 			OutputStream os = socket.getOutputStream();
 			os.write(message.getBytes());
 			os.flush();
-			
+
 			System.out.println("送信成功");
-			
+
 			InputStream is = socket.getInputStream();
 			byte[] buffer = new byte[1024];
 			int len = is.read(buffer);
-			
+
 			System.out.println("応答：" + new String(buffer, 0, len));
-			
-		}catch(IOException e) {
-			
+
+		} catch (IOException e) {
+
 			System.out.println("クライアント：サーバー接続に失敗しました" + e);
 		}
-		
+
 	}
-	
+
 	public void send(String host, int port, byte[] data) {
-		
+
 		try (Socket socket = new Socket(host, port)) {
-			
+
 			OutputStream os = socket.getOutputStream();
 			os.write(data);
 			os.flush();
-			
+
 			System.out.println("送信成功");
-			
+
 			InputStream is = socket.getInputStream();
 			byte[] buffer = new byte[1024];
 			int len = is.read(buffer);
-			
+
 			System.out.println("応答" + new String(buffer, 0, len));
-			
-		}catch(IOException e) {
-			
+
+		} catch (IOException e) {
+
 			System.out.println("クライアント：サーバー接続に失敗しました" + e);
-			
+
 		}
-		
+
 	}
 
 }

@@ -9,18 +9,18 @@ public class TempReader implements TextReader {
 
 	@Override
 	public byte[] read(String filePath) {
-		
+
 		try {
-			
+
 			String content = Files.readString(Path.of(filePath));
 			return content.getBytes(StandardCharsets.UTF_8);
-			
-		}catch(IOException e) {
-		
-		throw new RuntimeException("ファイル読み込み失敗", e);
-		
+
+		} catch (IOException e) {
+
+			throw new RuntimeException("ファイル読み込み失敗", e);
+
 		}
-		
+
 	}
 
 }
